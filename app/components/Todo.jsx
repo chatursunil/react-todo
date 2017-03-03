@@ -4,6 +4,7 @@ const moment = require('moment');
 const Todo = React.createClass({
     render: function() {
         let {id, text, completed, createdAt, completedAt} = this.props;
+        const todoClassName = completed ? 'todo todo-completed' : 'todo';
         let message = 'Created'
         let timeStamp = createdAt;
         if (completed) {
@@ -14,14 +15,16 @@ const Todo = React.createClass({
             return `${message}: ${moment.unix(timeStamp).format('MMM Do YYYY @ h:mm a')}`;
         };
         return (
-            <div onClick={() => {
+            <div className={todoClassName} onClick={() => {
                     this.props.onToggle(id);
                 }}>
-                <p>
-                <input type="checkbox" checked={completed}/>
-                {text}
-                </p>
-                <p>{renderDate()}</p>
+                <div>
+                    <input type="checkbox" checked={completed}/>
+                </div>
+                <div>
+                    <p>{text}</p>              
+                    <p className="todo__subtext">{renderDate()}</p>
+                </div>
             </div>
         );
     }
