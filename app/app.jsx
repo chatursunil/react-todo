@@ -6,10 +6,17 @@ const {Provider} = require('react-redux');
 const TodoApp = require('TodoApp');
 const actions = require('actions');
 const store = require('configureStore').configure();
+const TodoAPI = require('TodoAPI');
 
 store.subscribe(() => {
-  console.log('New State:', store.getState());
+  const state = store.getState();
+  console.log('New State:', state);
+  TodoAPI.setTodos(state.todos);
 })
+
+const initialTodos = TodoAPI.getTodos();
+// console.log('initialTodos:', initialTodos);
+store.dispatch(actions.addTodos(initialTodos));
 
 // store.dispatch(actions.addTodo('Feed the birds'));
 // store.dispatch(actions.setSearchText('bird'));
