@@ -11,9 +11,9 @@ store.subscribe(() => {
   console.log('New State:', store.getState());
 })
 
-store.dispatch(actions.addTodo('Feed the birds'));
-store.dispatch(actions.setSearchText('bird'));
-store.dispatch(actions.toggleShowCompleted());
+// store.dispatch(actions.addTodo('Feed the birds'));
+// store.dispatch(actions.setSearchText('bird'));
+// store.dispatch(actions.toggleShowCompleted());
 
 // Load foundation
 $(document).foundation();
