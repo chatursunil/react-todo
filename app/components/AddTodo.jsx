@@ -10,7 +10,7 @@ export const AddTodo = React.createClass({
         if (todoText.length > 0) {
             this.refs.todoText.value = '';
             // this.props.onAddTodo(todoText);
-            dispatch(actions.addTodo(todoText));
+            dispatch(actions.startAddTodo(todoText));
         } else {
             this.refs.todoText.value = '';
             this.refs.todoText.focus();
