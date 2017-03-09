@@ -14,11 +14,16 @@ export const TodoList = React.createClass({
                     <p className="container__message">Nothing to do here.</p>
                 );
             }
-            return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
-                return(
-                    <Todo key={todo.id} {...todo}></Todo>
+            const filterTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+            if (filterTodos.length === 0) {
+                return (
+                    <p className="container__message">Nothing to do here.</p>
                 );
-            });
+            } else {
+                return filterTodos.map((todo) => {
+                    return <Todo key={todo.id} {...todo}></Todo>
+                });
+            }               
         };
         return (
             <div>

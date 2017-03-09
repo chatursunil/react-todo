@@ -1,23 +1,23 @@
 const $ = require('jquery');
 
 module.exports = {
-    setTodos: function(todos) {
-        if ($.isArray(todos)) {
-            localStorage.setItem('todos', JSON.stringify(todos));
-            return todos;
-        }
-    },
-    getTodos: function() {
-        const stringTodos = localStorage.getItem('todos');
-        let todos = [];
+    // setTodos: function(todos) {
+    //     if ($.isArray(todos)) {
+    //         localStorage.setItem('todos', JSON.stringify(todos));
+    //         return todos;
+    //     }
+    // },
+    // getTodos: function() {
+    //     const stringTodos = localStorage.getItem('todos');
+    //     let todos = [];
 
-        try {
-            todos = JSON.parse(stringTodos);
-        } catch (error) {
+    //     try {
+    //         todos = JSON.parse(stringTodos);
+    //     } catch (error) {
             
-        }
-        return $.isArray(todos) ? todos : [];
-    },
+    //     }
+    //     return $.isArray(todos) ? todos : [];
+    // },
     filterTodos: function(todos, showCompleted, searchText) {
         let filteredTodos = todos;
 
